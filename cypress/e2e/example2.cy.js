@@ -11,18 +11,13 @@ describe('An example test', () => {
         cy.get("h3").should('be.visible')
         .and('have.text', "Login Successfully");
         cy.get("h3").contains("Login Successfully");
-
-        cy.get("a[linkText='Flights']").click();
-        cy.get("select[name='fromMonth'").select('December').should('have.value', '12');
-        cy.get("select[name='fromDay'").select('5').should('have.value', '5');
-        cy.get("select[name='toMonth'").select('December').should('have.value', '12');
-        cy.get("select[name='toDay'").select('5').should('have.value', '5');
+        cy.get("a").contains("Flights").click();
+        cy.get("select[name='fromMonth']").select('December').should('have.value', '12');
+        cy.get("select[name='fromDay']").select('5').should('have.value', '5');
+        cy.get("select[name='toMonth']").select('December').should('have.value', '12');
+        cy.get("select[name='toDay']").select('5').should('have.value', '5');
         cy.get("input[name='findFlights']").click();
         cy.wait(10000);
-
-        // cy.get("font").should('be.visible')
-        // .and('have.text', "After flight finder - No Seats Avaialble");
-        cy.get('font').eq(1)
-        cy.get("font").contains("After flight finder - No Seats Avaialble");
+        cy.get('font:nth-child(1) > b > font:nth-child(1)').contains('After flight finder - No Seats Avaialble')
     })
 })
